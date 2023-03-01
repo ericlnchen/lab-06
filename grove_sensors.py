@@ -7,10 +7,6 @@ import grovepi
 # SIG,NC,VCC,GND
 potentiometer = 0
 
-# Connect the LED to digital port D5
-# SIG,NC,VCC,GND
-led = 5
-
 grovepi.pinMode(potentiometer,"INPUT")
 time.sleep(1)
 
@@ -24,6 +20,7 @@ grove_vcc = 5
 full_angle = 300
 
 def main():
+
     threshold = grovepi.analogRead(potentiometer)
     prev_threshold = 0
     nl = '\n'
@@ -32,6 +29,7 @@ def main():
     while True:
         
         # update the threshold only if the user used the potentiometer
+        # we give a buffer of 5 so that the screen doesn't always refresh like crazy
         if threshold - prev_threshold > 5 or threshold - prev_threshold < -5:
             prev_threshold = threshold
             setText(f"{nl}{threshold:3}cm")
