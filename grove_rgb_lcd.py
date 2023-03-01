@@ -1,4 +1,5 @@
-mport time,sys
+import time
+import sys
 
 if sys.platform == 'uwp':
     import winrt_smbus as smbus
