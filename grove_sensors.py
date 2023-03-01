@@ -22,9 +22,11 @@ full_angle = 300
 def main():
 
     threshold = grovepi.analogRead(potentiometer)
+    supersonice_range = 0
     prev_threshold = 0
     nl = '\n'
     setRGB(0,128,64)
+
 
     while True:
         
@@ -32,9 +34,12 @@ def main():
         # we give a buffer of 5 so that the screen doesn't always refresh like crazy
         if threshold - prev_threshold > 5 or threshold - prev_threshold < -5:
             prev_threshold = threshold
-            setText(f"{nl}{threshold:3}cm")
+            setText_norefresh(f"{nl}{threshold:3}cm")
 
         threshold = grovepi.analogRead(potentiometer) # constantly check and update the threshold
+
+        if supersonice_range > threshold:
+            setText_norefresh("OBJ PRES")
     
 
 if __name__ == "__main__":
