@@ -25,7 +25,7 @@ full_angle = 300
 
 def main():
     threshold = grovepi.analogRead(potentiometer)
-    prev_threshold = threshold
+    prev_threshold = 0
     nl = '\n'
     setRGB(0,128,64)
 
@@ -33,7 +33,7 @@ def main():
         
         if threshold != prev_threshold:
             prev_threshold = threshold
-            setText(f"{nl}{current_threshold:3}cm")
+            setText(f"{nl}{threshold:3}cm")
     
 
 if __name__ == "__main__":
