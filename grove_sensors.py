@@ -32,7 +32,7 @@ def main():
     while True:
         
         # update the threshold only if the user used the potentiometer
-        if threshold != prev_threshold:
+        if threshold - prev_threshold > 5 or threshold - prev_threshold < -5:
             prev_threshold = threshold
             setText(f"{nl}{threshold:3}cm")
 
