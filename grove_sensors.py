@@ -24,16 +24,15 @@ grove_vcc = 5
 full_angle = 300
 
 def main():
-    prev_threshold = 0
-    current_threshold = -1
+    threshold = grovepi.analogRead(potentiometer)
+    prev_threshold = threshold
     nl = '\n'
     setRGB(0,128,64)
 
     while True:
-        sensor_value = grovepi.analogRead(potentiometer)
-        prev_threshold = sensor_value
-        if current_threshold != prev_threshold:
-            current_threshold = prev_threshold
+        
+        if threshold != prev_threshold:
+            prev_threshold = threshold
             setText(f"{nl}{current_threshold:3}cm")
     
 
