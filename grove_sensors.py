@@ -31,9 +31,12 @@ def main():
 
     while True:
         
+        # update the threshold only if the user used the potentiometer
         if threshold != prev_threshold:
             prev_threshold = threshold
             setText(f"{nl}{threshold:3}cm")
+
+        threshold = grovepi.analogRead(potentiometer) # constantly check and update the threshold
     
 
 if __name__ == "__main__":
