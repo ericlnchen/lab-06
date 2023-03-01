@@ -29,7 +29,6 @@ full_angle = 300
 def main():
 
     threshold = grovepi.analogRead(potentiometer)
-    supersonice_range = 999
     prev_threshold = 0
     nl = '\n'
     setRGB(0,128,64)
@@ -44,10 +43,10 @@ def main():
             
         threshold = grovepi.analogRead(potentiometer) # constantly check and update the threshold
 
-        if supersonice_range > threshold:
-            setText_norefresh(f"{distance}cm OBJ PRES{nl}{threshold:3}cm")
+        if distance < threshold:
+            setText_norefresh(f"{threshold:3}cm OBJ PRES{nl}{distance:3}cm")
         else:
-            setText_norefresh(f"{distance}cm        {nl}{threshold:3}cm")
+            setText_norefresh(f"{threshold:3}cm         {nl}{distance:3}cm")
 
         
     
