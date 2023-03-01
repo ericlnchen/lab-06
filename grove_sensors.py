@@ -39,7 +39,7 @@ def main():
         threshold = grovepi.analogRead(potentiometer) # constantly check and update the threshold
 
         if supersonice_range > threshold:
-            setText_norefresh("OBJ PRES")
+            setText_norefresh(f"OBJ PRES{nl}{threshold:3}cm")
     
 
 if __name__ == "__main__":
