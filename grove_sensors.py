@@ -22,7 +22,7 @@ full_angle = 300
 def main():
 
     threshold = grovepi.analogRead(potentiometer)
-    supersonice_range = 0
+    supersonice_range = 999
     prev_threshold = 0
     nl = '\n'
     setRGB(0,128,64)
