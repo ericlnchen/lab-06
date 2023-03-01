@@ -46,10 +46,7 @@ def main():
         if distance < threshold:
             setText_norefresh(f"{threshold:3}cm OBJ PRES{nl}{distance:3}cm")
         else:
-            if threshold >= 1000:
-                setText_norefresh(f"{threshold:3}cm           {nl}{distance:3}cm")
-            else:
-                setText_norefresh(f"{threshold:3}cm         {nl}{distance:3}cm")
+            setText_norefresh(f"{threshold:3}cm           {nl}{distance:3}cm")
 
         
     
