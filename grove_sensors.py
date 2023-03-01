@@ -7,5 +7,5 @@ setRGB(0,128,64)
 while True:
     if current_threshold != prev_threshold:
         current_threshold = prev_threshold
-        setText(f"{threshold}cm")
+        setText(f"{current_threshold}cm")
     
