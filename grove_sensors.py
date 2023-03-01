@@ -34,12 +34,15 @@ def main():
         # we give a buffer of 5 so that the screen doesn't always refresh like crazy
         if threshold - prev_threshold > 5 or threshold - prev_threshold < -5:
             prev_threshold = threshold
-            setText_norefresh(f"{nl}{threshold:3}cm")
+            if supersonice_range > threshold:
+                setText_norefresh(f"OBJ PRES{nl}{threshold:3}cm")
+            else:
+                setText_norefresh(f"{nl}{threshold:3}cm")
+            
 
         threshold = grovepi.analogRead(potentiometer) # constantly check and update the threshold
 
-        if supersonice_range > threshold:
-            setText_norefresh(f"OBJ PRES{nl}{threshold:3}cm")
+        
     
 
 if __name__ == "__main__":
