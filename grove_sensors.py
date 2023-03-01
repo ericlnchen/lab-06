@@ -32,7 +32,7 @@ def main():
         
         # update the threshold only if the user used the potentiometer
         # we give a buffer of 5 so that the screen doesn't always refresh like crazy
-        if threshold - prev_threshold > 5 or threshold - prev_threshold < -5:
+        if threshold - prev_threshold > 2 or threshold - prev_threshold < -2:
             prev_threshold = threshold
             if supersonice_range > threshold:
                 setText_norefresh(f"OBJ PRES{nl}{threshold:3}cm")
