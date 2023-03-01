@@ -1,8 +1,11 @@
 from grove_rgb_lcd import *
 
-threshold = 0
+prev_threshold = 0
+current_threshold = -1
 setRGB(0,128,64)
 
 while True:
-    setText(f"{threshold}cm")
+    if current_threshold != prev_threshold:
+        current_threshold = prev_threshold
+        setText(f"{threshold}cm")
     
