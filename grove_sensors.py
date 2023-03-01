@@ -44,7 +44,11 @@ def main():
         threshold = grovepi.analogRead(potentiometer) # constantly check and update the threshold
 
         if distance < threshold:
-            setText_norefresh(f"{threshold:3}cm OBJ PRES{nl}{distance:3}cm")
+            if threshold < 1000:
+                setText_norefresh(f"{threshold:3}cm OBJ PRES {nl}{distance:3}cm")
+            else:
+                setText_norefresh(f"{threshold:3}cm OBJ PRES{nl}{distance:3}cm")
+            
         else:
             setText_norefresh(f"{threshold:3}cm           {nl}{distance:3}cm")
 
