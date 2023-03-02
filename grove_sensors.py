@@ -13,6 +13,7 @@ def set_bus(bus):
 address = 0x04
 max_recv_size = 10
 set_bus("RPI_1SW")
+
 # This allows us to be more specific about which commands contain unused bytes
 unused = 0
 retries = 10
